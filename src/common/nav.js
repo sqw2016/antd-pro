@@ -47,6 +47,11 @@ export const getNavData = app => [
             path: 'button',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Button/ButtonStudy')),
           },
+          {
+            name: 'Grid(栅格)',
+            path: 'grid',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Grid/Grid')),
+          },
         ],
       },
       {

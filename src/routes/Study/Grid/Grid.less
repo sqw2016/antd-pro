@@ -1,0 +1,34 @@
+.border_radius(@size) {
+  -webkit-border-radius: @size;
+  -moz-border-radius: @size;
+  border-radius: @size;
+}
+.title {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.container {
+  background: white;
+  .border_radius(5px);
+  padding: 15px;
+}
+.row {
+  margin: 10px 0;
+}
+.col {
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+}
+.col_div {
+  background: red;
+}
+.col1 {
+  background: rgba(0, 160, 233, 0.7);
+  .col;
+}
+
+.col2 {
+  background: #00a0e9;
+  .col;
+}
