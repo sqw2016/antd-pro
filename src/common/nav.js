@@ -52,6 +52,11 @@ export const getNavData = app => [
             path: 'grid',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Grid/Grid')),
           },
+          {
+            name: 'Layout(布局)',
+            path: 'layout',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Layout/Layout')),
+          },
         ],
       },
       {

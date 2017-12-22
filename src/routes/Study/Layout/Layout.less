@@ -1,0 +1,35 @@
+.border_radius(@size) {
+  -webkit-border-radius: @size;
+  -moz-border-radius: @size;
+  border-radius: @size;
+}
+.title {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.container {
+  background: white;
+  .border_radius(5px);
+  padding: 15px;
+}
+.colorWhite {
+  color: white;
+}
+.layout_header {
+  display: block;
+  .colorWhite;
+  background: rgba(0, 160, 233, 0.7);
+}
+.layout_footer {
+  .layout_header;
+}
+.layout_content {
+  .layout_header;
+  background: #00a0e9;
+  padding: 50px;
+}
+.layout_sider {
+  .layout_header;
+  background: rgba(0, 160, 233, 0.9);
+  padding: 50px;
+}
