@@ -57,6 +57,11 @@ export const getNavData = app => [
             path: 'layout',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Layout/Layout')),
           },
+          {
+            name: 'Breadcrumb(面包屑)',
+            path: 'breadcrumb',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Breadcrumb/Breadcrumb')),
+          },
         ],
       },
       {
