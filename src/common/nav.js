@@ -67,6 +67,11 @@ export const getNavData = app => [
             path: 'dropdown',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Dropdown/Dropdown')),
           },
+          {
+            name: 'Menu(菜单)',
+            path: 'menu',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Menu/MenuStudy')),
+          },
         ],
       },
       {
