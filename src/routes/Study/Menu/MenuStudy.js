@@ -221,6 +221,51 @@ export default class MenuStudy extends React.Component {
               </SubMenu>
             </Menu>
           </div>
+          {/* 多选菜单 */}
+          <div className={styles.title}>多选菜单</div>
+          <div style={{ width: 256 }}>
+            <Menu
+              mode="inline"
+              theme="dark"
+              defaultOpenKeys={['subOne']}
+              defaultSelectedKeys={['1', '2']}
+              selectable={false}
+              multiple={true}
+            >
+              <Menu.Item key="mail">
+                <Icon type="mail" /><span>Navigator mail</span>
+              </Menu.Item>
+              <Menu.Item key="app">
+                <Icon type="appstore" /><span>Navigator app</span>
+              </Menu.Item>
+              <SubMenu key="subOne" title={<span><Icon type="setting" /><span>Navigator Setting</span></span>}>
+                <ItemGroup key="sub1" title="ItemGroup one">
+                  <Menu.Item key="1">Item 1</Menu.Item>
+                  <Menu.Item key="2">Item 2</Menu.Item>
+                </ItemGroup>
+                <ItemGroup key="sub2" title="ItemGroup two">
+                  <Menu.Item key="3">Item 1</Menu.Item>
+                  <Menu.Item key="4">Item 2</Menu.Item>
+                </ItemGroup>
+              </SubMenu>
+              <Menu.Item key="aLink">
+                <Icon type="link" />
+                <span>
+                  <a style={{ color: 'inherit' }} href="https://www.baidu.com" target="_blank" rel="noopener noreferrer">Navigator a</a>
+                </span>
+              </Menu.Item>
+              <SubMenu key="subTwo" title={<span><Icon type="book" /><span>Navigator Book</span></span>}>
+                <ItemGroup key="sub3" title="ItemGroup one">
+                  <Menu.Item key="5">Item 1</Menu.Item>
+                  <Menu.Item key="6">Item 2</Menu.Item>
+                </ItemGroup>
+                <ItemGroup key="sub4" title="ItemGroup two">
+                  <Menu.Item key="7">Item 1</Menu.Item>
+                  <Menu.Item key="8">Item 2</Menu.Item>
+                </ItemGroup>
+              </SubMenu>
+            </Menu>
+          </div>
         </div>
       </div>
     );
