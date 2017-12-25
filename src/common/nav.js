@@ -77,6 +77,11 @@ export const getNavData = app => [
             path: 'pagination',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Pagination/Pagination')),
           },
+          {
+            name: 'Steps(步骤条)',
+            path: 'steps',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Steps/Steps')),
+          },
         ],
       },
       {
