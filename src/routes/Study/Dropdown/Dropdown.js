@@ -4,6 +4,9 @@ import styles from './Dropdown.less';
 const { SubMenu } = Menu;
 
 export default class DropdownStudy extends React.Component {
+  state = {
+    visible: false,
+  };
   render() {
     const menu1 = (
       <Menu>
@@ -104,6 +107,21 @@ export default class DropdownStudy extends React.Component {
           <div className={styles.title}>多级下拉菜单</div>
           <Dropdown overlay={subMenu}>
             <Button type="primary">多级下拉菜单<Icon type="down" /></Button>
+          </Dropdown>
+          {/* 下拉菜单的显示控制 */}
+          <div className={styles.title}>下拉菜单的显示控制(visible)，默认点击隐藏</div>
+          <Dropdown
+            overlay={menu1}
+            visible={this.state.visible}
+            onVisibleChange={(flag) => { this.setState({ visible: flag }); }}
+            onOverlayClick={(e) => { if (e.key === '2') { this.setState({ visible: false }); } }}
+          >
+            <Button type="primary">下拉菜单显示控制<Icon type="down" /></Button>
+          </Dropdown>
+          {/* 下拉菜单触发 */}
+          <div className={styles.title}>下拉菜单触发(trigger)</div>
+          <Dropdown overlay={menu1} trigger={['contextMenu']}>
+            <Button type="primary">右键点击触发</Button>
           </Dropdown>
         </div>
       </div>
