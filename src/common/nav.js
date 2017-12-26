@@ -82,6 +82,11 @@ export const getNavData = app => [
             path: 'steps',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Steps/Steps')),
           },
+          {
+            name: 'AutoComplete(步骤条)',
+            path: 'autoComplete',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/AutoComplete/AutoComplete')),
+          },
         ],
       },
       {
