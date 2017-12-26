@@ -47,7 +47,7 @@ export default class AutoCompleteStudy extends React.Component {
             style={{ width: 256 }}
           />
           {/* 输入过滤 */}
-          <div className={styles.title}>输入过滤</div>
+          <div className={styles.title}>输入过滤(区分大小写)</div>
           <AutoComplete
             dataSource={this.state.dataSource}
             placeholder="请输入"
@@ -82,6 +82,14 @@ export default class AutoCompleteStudy extends React.Component {
               placeholder="请输入"
             />
           </AutoComplete>
+          {/* 筛选不区分大小写 */}
+          <div className={styles.title}>筛选不区分大小写</div>
+          <AutoComplete
+            dataSource={this.state.dataSource}
+            placeholder="请输入"
+            style={{ width: 256 }}
+            filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+          />
         </div>
       </div>
     );
