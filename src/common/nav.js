@@ -92,6 +92,11 @@ export const getNavData = app => [
             path: 'Cascader',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Cascader/Cascader')),
           },
+          {
+            name: 'Checkbox(复选框)',
+            path: 'Checkbox',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Checkbox/Checkbox')),
+          },
         ],
       },
       {
