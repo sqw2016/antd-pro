@@ -87,6 +87,11 @@ export const getNavData = app => [
             path: 'autoComplete',
             component: dynamicWrapper(app, [], () => import('../routes/Study/AutoComplete/AutoComplete')),
           },
+          {
+            name: 'Cascader(级联选择)',
+            path: 'Cascader',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Cascader/Cascader')),
+          },
         ],
       },
       {
