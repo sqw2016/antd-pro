@@ -89,13 +89,18 @@ export const getNavData = app => [
           },
           {
             name: 'Cascader(级联选择)',
-            path: 'Cascader',
+            path: 'cascader',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Cascader/Cascader')),
           },
           {
             name: 'Checkbox(复选框)',
-            path: 'Checkbox',
+            path: 'checkbox',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Checkbox/Checkbox')),
+          },
+          {
+            name: 'DatePicker(日期选择框)',
+            path: 'datePicker',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/DatePicker/DatePicker')),
           },
         ],
       },

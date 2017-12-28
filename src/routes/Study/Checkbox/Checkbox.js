@@ -49,6 +49,7 @@ export default class CheckboxStudy extends React.Component {
   render() {
     return (
       <div>
+        <div className={styles.title}>Checkbox Study</div>
         <div className={styles.container}>
           {/* 最简单的复选框 */}
           <div className={styles.title}>最简单的复选框</div>

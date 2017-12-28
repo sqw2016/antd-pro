@@ -7,9 +7,9 @@
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
   ],
   "env": {
-    production: {
-      multipage: false,
-      publicPath: '/qrc'
+    "production": {
+      "multipage": false,
+      "publicPath": "/qrc"
     },
     "development": {
       "extraBabelPlugins": [
