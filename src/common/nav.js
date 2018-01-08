@@ -102,6 +102,11 @@ export const getNavData = app => [
             path: 'datePicker',
             component: dynamicWrapper(app, [], () => import('../routes/Study/DatePicker/DatePicker')),
           },
+          {
+            name: 'Form(表单)',
+            path: 'form',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/Form/FormStudy')),
+          },
         ],
       },
       {
