@@ -107,6 +107,11 @@ export const getNavData = app => [
             path: 'form',
             component: dynamicWrapper(app, [], () => import('../routes/Study/Form/FormStudy')),
           },
+          {
+            name: 'UpLoad(上传)',
+            path: 'upLoad',
+            component: dynamicWrapper(app, [], () => import('../routes/Study/UpLoad/UpLoad')),
+          },
         ],
       },
       {

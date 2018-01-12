@@ -1,8 +1,34 @@
 import React from 'react';
-import { Form, Input, Button, message, Icon, Checkbox } from 'antd';
+import { Form, Input, Button, message, Icon, Checkbox, Tooltip } from 'antd';
 import styles from './FormStudy.less';
 
 const FormItem = Form.Item;
+const formLayout = {
+  labelCol: {
+    xs: {
+      span: 2,
+    },
+    sm: {
+      span: 4,
+    },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 8 },
+  },
+};
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
+  },
+};
 class FormComponent extends React.Component {
   state = {
   };
@@ -12,6 +38,9 @@ class FormComponent extends React.Component {
   };
   hasError = (fieldsError) => {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
+  };
+  validator = (rule, val, callback) => {
+    callback('输入正确格式');
   };
   render() {
     const {
@@ -37,8 +66,6 @@ class FormComponent extends React.Component {
               <FormItem
                 colon={false}
                 label="用户名"
-                validateStatus={userNameError ? 'error' : ''}
-                help={userNameError ? 'error' : ''}
               >
                 {
                   getFieldDecorator('userName', {
@@ -53,8 +80,6 @@ class FormComponent extends React.Component {
               </FormItem>
               <FormItem
                 label="密码"
-                validateStatus={pwdError ? 'error' : ''}
-                help={pwdError ? 'error' : ''}
               >
                 {
                   getFieldDecorator('pwd', {
@@ -87,11 +112,9 @@ class FormComponent extends React.Component {
               <FormItem
                 colon={false}
                 label="用户名"
-                validateStatus={userNameError ? 'error' : ''}
-                help={userNameError ? 'error' : ''}
               >
                 {
-                  getFieldDecorator('userName', {
+                  getFieldDecorator('userName1', {
                     rules: [{
                       required: true,
                       message: '请输入用户名',
@@ -103,11 +126,9 @@ class FormComponent extends React.Component {
               </FormItem>
               <FormItem
                 label="密码"
-                validateStatus={pwdError ? 'error' : ''}
-                help={pwdError ? 'error' : ''}
               >
                 {
-                  getFieldDecorator('pwd', {
+                  getFieldDecorator('pwd1', {
                     rules: [{
                       required: true,
                       message: '请输入密码',
@@ -135,6 +156,114 @@ class FormComponent extends React.Component {
                   Login
                 </Button>
                 <a href="">注册</a>
+              </FormItem>
+            </Form>
+          </div>
+          {/* 包含输入校验的表单 */}
+          <div className={styles.title}>包含输入校验的表单</div>
+          <div>
+            <Form
+              onSubmit={this.submit}
+            >
+              <FormItem
+                label="邮箱"
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('email', {
+                    rules: [{
+                      required: true,
+                      message: '请输入邮箱',
+                    }],
+                  })(
+                    <Input prefix={<Icon type="user" style={{ color: '0,0,0, 0.25' }} />} placeholder="userName" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                label="密码"
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('pwd2', {
+                    rules: [{
+                      required: true,
+                      message: '请输入密码',
+                    }],
+                  })(
+                    <Input prefix={<Icon type="lock" style={{ color: '0,0,0, 0.25' }} />} placeholder="password" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                label="正则校验"
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('pattern', {
+                    rules: [{
+                      pattern: /^\d{6}$/,
+                      message: '请输入6位数字',
+                    }],
+                  })(
+                    <Input prefix={<Icon type="lock" style={{ color: '0,0,0, 0.25' }} />} placeholder="password" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                label="自定义方法校验"
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('validator', {
+                    rules: [{
+                      validator: this.validator,
+                    }],
+                  })(
+                    <Input prefix={<Icon type="lock" style={{ color: '0,0,0, 0.25' }} />} placeholder="password" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                label={
+                  <span>
+                    help&nbsp;
+                    <Tooltip title="What do you want?">
+                      <Icon type="question-circle-o" />
+                    </Tooltip>
+                  </span>
+                }
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('help', {
+                    rules: [{
+                      validator: this.validator,
+                    }],
+                  })(
+                    <Input prefix={<Icon type="lock" style={{ color: '0,0,0, 0.25' }} />} placeholder="password" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                label="extra"
+                extra="妈的渣渣"
+                {...formLayout}
+              >
+                {
+                  getFieldDecorator('extra', {
+                    rules: [{
+                      validator: this.validator,
+                    }],
+                  })(
+                    <Input prefix={<Icon type="lock" style={{ color: '0,0,0, 0.25' }} />} placeholder="password" />
+                  )
+                }
+              </FormItem>
+              <FormItem
+                {...tailFormItemLayout}
+              >
+                <Button type="primary" htmlType="submit">提交</Button>
               </FormItem>
             </Form>
           </div>
